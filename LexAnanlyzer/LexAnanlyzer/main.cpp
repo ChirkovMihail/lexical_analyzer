@@ -1,4 +1,5 @@
 ﻿#include "Libraries.h"
+#include "DFA.h"
 
 int main()
 {
