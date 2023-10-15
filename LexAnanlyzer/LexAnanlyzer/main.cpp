@@ -12,7 +12,7 @@ void input_dfa(DFA*& dfa)
 	vector<bool> final_states;
 	vector<vector<int> > transit_func;
 
-	ifstream fin("input.txt");
+	ifstream fin("input_dfa.txt");
 
 	fin >> num_of_states;
 
@@ -33,7 +33,7 @@ void input_dfa(DFA*& dfa)
 	final_states.resize(num_of_states);
 	for (i = 0; i < num_of_final_states; ++i) {
 		fin >> curr_state;
-		final_states[curr_state] = true;
+		final_states[curr_state - 1] = true;
 	}
 
 	transit_func.resize(num_of_states, vector<int>(num_of_weights, -1));
