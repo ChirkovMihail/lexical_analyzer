@@ -61,8 +61,28 @@ void input_dfa(DFSM*& dfsm)
 int main()
 {
 	DFSM* dfsm;
-
 	input_dfa(dfsm);
+
+	HashTable hashh(1000);
+
+	ifstream fin("text_input.txt");
+	string word, type;
+
+
+	while (!fin.eof()) {
+		fin >> word;
+		type = dfsm->is_accept(word);		
+		if (type.size() > 0) {
+			Token new_tok(word, type);
+			hashh.insert_token(new_tok);
+		}
+		else
+		{
+			cout << "Wrong word : " << word << '\n';
+		}
+	}
+
+	hashh.print_table(cout);
 
 	return 0;
 }

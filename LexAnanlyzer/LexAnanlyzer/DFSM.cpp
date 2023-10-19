@@ -22,7 +22,23 @@ int DFSM::get_state(int curr_state, char c)
 	return -1;
 }
 
-bool DFSM::is_accept(string& s, string& path)
+string DFSM::get_state_type(int state)//2 4 6 7 8 9 10 11 12 13 14 15 16 17 18
+{
+	if (state == 2 || state == 3 || state == 4)
+		return "integer";
+	if (state == 6)
+		return "real";
+	if (state == 7)
+		return "operator";
+	if (state == 8)
+		return "service char";
+	if (state == 9 || state == 10 || state == 12 || state == 13 || state == 14 || state == 15 || state == 16 || state == 17)
+		return "identificator";
+	if (state == 11 || state == 18)
+		return "key word";
+}
+
+string DFSM::is_accept(string& s, string& path)
 {
 	int curr_state = 0;
 	path = "0 ";
@@ -30,11 +46,25 @@ bool DFSM::is_accept(string& s, string& path)
 	for (auto c : s) {
 		curr_state = get_state(curr_state, c);
 		if (curr_state == -1)
-			return false;
+			return "";
 		path += to_string(curr_state) + " ";
 	}
 	if (final_states[curr_state])
-		return true;
+		return get_state_type(curr_state);
 	else
-		return false;
+		return "";
+}
+string DFSM::is_accept(string& s)
+{
+	int curr_state = 0;
+
+	for (auto c : s) {
+		curr_state = get_state(curr_state, c);
+		if (curr_state == -1)
+			return "";
+	}
+	if (final_states[curr_state])
+		return get_state_type(curr_state);
+	else
+		return "";
 }

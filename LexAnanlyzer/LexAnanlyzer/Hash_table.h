@@ -1,4 +1,6 @@
 #pragma once
+#include "Token.h"
+
 class HashTable
 {
 private:	
