@@ -1,7 +1,9 @@
 ﻿#include "Libraries.h"
-#include "DFA.h"
+#include "DFSM.h"
+#include "Token.h"
+#include "Hash_table.h"
 
-void input_dfa(DFA*& dfa)
+void input_dfa(DFSM*& dfsm)
 {
 	int num_of_states, size_of_alph, num_of_prods, num_of_weights, num_of_final_states, i;
 	int curr_state, next_state, weight_ind;
@@ -12,7 +14,7 @@ void input_dfa(DFA*& dfa)
 	vector<bool> final_states;
 	vector<vector<int> > transit_func;
 
-	ifstream fin("input_dfa.txt");
+	ifstream fin("input_dfsm.txt");
 
 	fin >> num_of_states;
 
@@ -43,7 +45,7 @@ void input_dfa(DFA*& dfa)
 		transit_func[curr_state - 1][weight_ind - 1] = next_state;
 	}
 
-	dfa = new DFA(num_of_states, alphabet, weights, final_states, transit_func);
+	dfsm = new DFSM(num_of_states, alphabet, weights, final_states, transit_func);
 
 	fin.close();
 	alphabet.shrink_to_fit();
@@ -58,9 +60,9 @@ void input_dfa(DFA*& dfa)
 
 int main()
 {
-	DFA* dfa;
+	DFSM* dfsm;
 
-	input_dfa(dfa);
+	input_dfa(dfsm);
 
 	return 0;
 }
