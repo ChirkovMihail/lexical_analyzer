@@ -14,16 +14,21 @@ DFSM::DFSM(int num_states, vector<char>& alphabet, vector<set<char> >& weights, 
 
 int DFSM::get_state(int curr_state, char c)
 {
-	int i = 0;
-	for (i = 0; i < transit_func[curr_state].size(); ++i) 
+	int i = 0;	
+	for (i = 0; i < transit_func[curr_state].size(); ++i) {
+		if (transit_func[curr_state][i] == -1)
+			continue;
 		if (weights[i].find(c) != weights[i].end())
 			return transit_func[curr_state][i];
-	throw exception("Wrong symbol");
+	}
+	
 	return -1;
 }
 
 string DFSM::get_state_type(int state)//2 4 6 7 8 9 10 11 12 13 14 15 16 17 18
 {
+	state++;
+
 	if (state == 2 || state == 3 || state == 4)
 		return "integer";
 	if (state == 6)
@@ -36,6 +41,8 @@ string DFSM::get_state_type(int state)//2 4 6 7 8 9 10 11 12 13 14 15 16 17 18
 		return "identificator";
 	if (state == 11 || state == 18)
 		return "key word";
+
+	return "";
 }
 
 string DFSM::is_accept(string& s, string& path)

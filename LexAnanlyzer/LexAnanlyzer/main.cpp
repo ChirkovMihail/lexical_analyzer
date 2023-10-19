@@ -26,7 +26,7 @@ void input_dfa(DFSM*& dfsm)
 	fin >> num_of_weights;
 	weights.resize(num_of_weights);
 	for (i = 0; i < num_of_weights; ++i) {
-		fin >> weight;
+		fin >> weight;		
 		for (auto c : weight)
 			weights[i].insert(c);
 	}
@@ -42,7 +42,7 @@ void input_dfa(DFSM*& dfsm)
 	fin >> num_of_prods;
 	for (i = 0; i < num_of_prods; ++i) {
 		fin >> curr_state >> next_state >> weight_ind;
-		transit_func[curr_state - 1][weight_ind - 1] = next_state;
+		transit_func[curr_state - 1][weight_ind - 1] = next_state - 1;
 	}
 
 	dfsm = new DFSM(num_of_states, alphabet, weights, final_states, transit_func);
@@ -68,21 +68,27 @@ int main()
 	ifstream fin("text_input.txt");
 	string word, type;
 
+	ofstream fout("text_output.txt");
 
 	while (!fin.eof()) {
 		fin >> word;
+		if (fin.eof())
+			break;
+				
 		type = dfsm->is_accept(word);		
+				
 		if (type.size() > 0) {
 			Token new_tok(word, type);
 			hashh.insert_token(new_tok);
 		}
 		else
 		{
-			cout << "Wrong word : " << word << '\n';
+			fout << "Wrong word : " << word << '\n';
 		}
 	}
 
-	hashh.print_table(cout);
+	hashh.print_table(fout);
 
+	fin.close();
 	return 0;
 }
