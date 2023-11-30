@@ -132,9 +132,11 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CYK.h" />
     <ClInclude Include="DFSM.h" />
     <ClInclude Include="Hash_table.h" />
     <ClInclude Include="Libraries.h" />
+    <ClInclude Include="ParseTree.h" />
     <ClInclude Include="Token.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

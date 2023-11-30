@@ -1,2 +1,13 @@
 ﻿  main.cpp
+D:\myPROJECTS\Laboratory works\FST\lexical_analyzer\LexAnanlyzer\LexAnanlyzer\CYK.h(98,44): warning C4267: аргумент: преобразование из "size_t" в "_Ty"; возможна потеря данных
+          with
+          [
+              _Ty=int
+          ]
+D:\myPROJECTS\Laboratory works\FST\lexical_analyzer\LexAnanlyzer\LexAnanlyzer\CYK.h(103,46): warning C4267: аргумент: преобразование из "size_t" в "_Ty"; возможна потеря данных
+          with
+          [
+              _Ty=int
+          ]
+D:\myPROJECTS\Laboratory works\FST\lexical_analyzer\LexAnanlyzer\LexAnanlyzer\CYK.h(146,8): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
   LexAnanlyzer.vcxproj -> D:\myPROJECTS\Laboratory works\FST\lexical_analyzer\LexAnanlyzer\x64\Debug\LexAnanlyzer.exe

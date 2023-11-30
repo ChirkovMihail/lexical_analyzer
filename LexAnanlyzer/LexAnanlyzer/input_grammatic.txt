@@ -1,0 +1,541 @@
+541
+Function 2 Function1 Function2
+Function1 2 Fun1 Fun2
+Function2 2 Fun3 End
+Fun1 2 Begin Space
+Fun2 2 Descriptions Space
+Fun3 2 Operators Space
+Space 1 #
+Begin 2 Begin1 Begin2
+Begin1 2 Type Space
+Begin2 2 Id BeginBrackets
+BeginBrackets 2 RoundBrackets SpaceAndOpenFigBracket
+RoundBrackets 2 OpenRoundBracket CloseRoundBracket
+SpaceAndOpenFigBracket 2 Space OpenFigBracket
+OpenRoundBracket 1 (
+CloseRoundBracket 1 )
+OpenFigBracket 1 {
+End 2 End1 End2
+End1 2 End11 End12
+End11 2 Return Space
+End12 2 Id Space
+End2 2 End21 CloseFigBracket
+End21 2 DotComa Space
+CloseFigBracket 1 }
+DotComa 1 ;
+Return 2 Ret Urn
+Ret 2 Re TT
+Re 2 RR EE
+RR 1 r
+EE 1 e
+TT 1 t
+Urn 2 Ur NN
+Ur 2 UU RR
+UU 1 u
+NN 1 n
+Descriptions 2 DescrWithSpace Descriptions
+DescrWithSpace 2 Descr Space
+Descr 2 Descr1 Descr2
+Descr1 2 Type Space
+Descr2 2 Descr21 DotComa
+Descr21 2 VarList Space
+Descriptions 2 Descr1 Descr2
+OpWithSpace 2 Op Space
+VarList 2 VarList1 Varlist2
+VarList1 2 Id SpaceWithComa
+SpaceWithComa 2 Space Coma
+Coma 1 ,
+VarList 2 Space VarList
+Type 2 In TT
+In 2 II NN
+II 1 i
+Type 2 Dou Ble
+Dou 2 Do UU
+Do 2 DD OO
+DD 1 d
+OO 1 o
+Ble 2 Bl EE
+Bl 2 BB LL
+BB 1 b
+LL 1 l
+Op 2 Op1 Op2
+Op1 2 Op11 Op12
+Op2 2 Op21 DotComa
+Op11 2 Id Space
+Op12 2 Equal Space
+Op21 2 Expr Space
+Equal 1 =
+Operators 2 Op1 Op2
+Operators 2 OpWithSpace Operators
+SimpleExpr 2 SimpleExpr1 CloseRoundBracket
+SimpleExpr1 2 OpenRoundBracket Expr
+Expr 2 Expr1 ExprPlus
+Expr 2 Expr1 ExprMinus
+Expr1 2 Term Space
+ExprPlus 2 PlusWithSpace Expr
+PlusWithSpace 2 Plus Space
+Plus 1 +
+ExprMinus 2 MinusWithSpace Expr
+MinusWithSpace 2 Minus Space
+Minus 1 -
+Term 2 SimpleExprMult SpaceWithTerm
+Term 2 SimpleExprDiv SpaceWithTerm
+SpaceWithTerm 2 Space Term
+SimpleExprMult 2 SimpleExpr SpaceWithMult
+SimpleExprDiv 2 SimpleExpr SpaceWithDiv
+SpaceWithMult 2 Space Mult
+SpaceWithDiv 2 Space Div
+Mult 1 *
+Div 1 /
+Term 2 SimpleExpr1 CloseRoundBracket
+Letter 1 a
+Letter 1 b
+Letter 1 c
+Letter 1 d
+Letter 1 e
+Letter 1 f
+Letter 1 g
+Letter 1 h
+Letter 1 i
+Letter 1 j
+Letter 1 k
+Letter 1 l
+Letter 1 m
+Letter 1 n
+Letter 1 o
+Letter 1 p
+Letter 1 q
+Letter 1 r
+Letter 1 s
+Letter 1 t
+Letter 1 u
+Letter 1 v
+Letter 1 w
+Letter 1 x
+Letter 1 y
+Letter 1 z
+Letter 1 A
+Letter 1 B
+Letter 1 C
+Letter 1 D
+Letter 1 E
+Letter 1 F
+Letter 1 G
+Letter 1 H
+Letter 1 I
+Letter 1 J
+Letter 1 K
+Letter 1 L
+Letter 1 M
+Letter 1 N
+Letter 1 O
+Letter 1 P
+Letter 1 Q
+Letter 1 R
+Letter 1 S
+Letter 1 T
+Letter 1 U
+Letter 1 V
+Letter 1 W
+Letter 1 X
+Letter 1 Y
+Letter 1 Z
+LetNum 1 a
+LetNum 1 b
+LetNum 1 c
+LetNum 1 d
+LetNum 1 e
+LetNum 1 f
+LetNum 1 g
+LetNum 1 h
+LetNum 1 i
+LetNum 1 j
+LetNum 1 k
+LetNum 1 l
+LetNum 1 m
+LetNum 1 n
+LetNum 1 o
+LetNum 1 p
+LetNum 1 q
+LetNum 1 r
+LetNum 1 s
+LetNum 1 t
+LetNum 1 u
+LetNum 1 v
+LetNum 1 w
+LetNum 1 x
+LetNum 1 y
+LetNum 1 z
+LetNum 1 A
+LetNum 1 B
+LetNum 1 C
+LetNum 1 D
+LetNum 1 E
+LetNum 1 F
+LetNum 1 G
+LetNum 1 H
+LetNum 1 I
+LetNum 1 J
+LetNum 1 K
+LetNum 1 L
+LetNum 1 M
+LetNum 1 N
+LetNum 1 O
+LetNum 1 P
+LetNum 1 Q
+LetNum 1 R
+LetNum 1 S
+LetNum 1 T
+LetNum 1 U
+LetNum 1 V
+LetNum 1 W
+LetNum 1 X
+LetNum 1 Y
+LetNum 1 Z
+LetNum 1 0
+LetNum 1 1
+LetNum 1 2
+LetNum 1 3
+LetNum 1 4
+LetNum 1 5
+LetNum 1 6
+LetNum 1 7
+LetNum 1 8
+LetNum 1 9
+LetNum 2 Letter LetNum
+LetNum 2 Digit LetNum
+Digit 1 0
+Digit 1 1
+Digit 1 2
+Digit 1 3
+Digit 1 4
+Digit 1 5
+Digit 1 6
+Digit 1 7
+Digit 1 8
+Digit 1 9
+Id 1 a
+Id 1 b
+Id 1 c
+Id 1 d
+Id 1 e
+Id 1 f
+Id 1 g
+Id 1 h
+Id 1 i
+Id 1 j
+Id 1 k
+Id 1 l
+Id 1 m
+Id 1 n
+Id 1 o
+Id 1 p
+Id 1 q
+Id 1 r
+Id 1 s
+Id 1 t
+Id 1 u
+Id 1 v
+Id 1 w
+Id 1 x
+Id 1 y
+Id 1 z
+Id 1 A
+Id 1 B
+Id 1 C
+Id 1 D
+Id 1 E
+Id 1 F
+Id 1 G
+Id 1 H
+Id 1 I
+Id 1 J
+Id 1 K
+Id 1 L
+Id 1 M
+Id 1 N
+Id 1 O
+Id 1 P
+Id 1 Q
+Id 1 R
+Id 1 S
+Id 1 T
+Id 1 U
+Id 1 V
+Id 1 W
+Id 1 X
+Id 1 Y
+Id 1 Z
+Id 2 Letter LetNum
+SimpleExpr 1 a
+SimpleExpr 1 b
+SimpleExpr 1 c
+SimpleExpr 1 d
+SimpleExpr 1 e
+SimpleExpr 1 f
+SimpleExpr 1 g
+SimpleExpr 1 h
+SimpleExpr 1 i
+SimpleExpr 1 j
+SimpleExpr 1 k
+SimpleExpr 1 l
+SimpleExpr 1 m
+SimpleExpr 1 n
+SimpleExpr 1 o
+SimpleExpr 1 p
+SimpleExpr 1 q
+SimpleExpr 1 r
+SimpleExpr 1 s
+SimpleExpr 1 t
+SimpleExpr 1 u
+SimpleExpr 1 v
+SimpleExpr 1 w
+SimpleExpr 1 x
+SimpleExpr 1 y
+SimpleExpr 1 z
+SimpleExpr 1 A
+SimpleExpr 1 B
+SimpleExpr 1 C
+SimpleExpr 1 D
+SimpleExpr 1 E
+SimpleExpr 1 F
+SimpleExpr 1 G
+SimpleExpr 1 H
+SimpleExpr 1 I
+SimpleExpr 1 J
+SimpleExpr 1 K
+SimpleExpr 1 L
+SimpleExpr 1 M
+SimpleExpr 1 N
+SimpleExpr 1 O
+SimpleExpr 1 P
+SimpleExpr 1 Q
+SimpleExpr 1 R
+SimpleExpr 1 S
+SimpleExpr 1 T
+SimpleExpr 1 U
+SimpleExpr 1 V
+SimpleExpr 1 W
+SimpleExpr 1 X
+SimpleExpr 1 Y
+SimpleExpr 1 Z
+SimpleExpr 2 Letter LetNum
+VarList 1 a
+VarList 1 b
+VarList 1 c
+VarList 1 d
+VarList 1 e
+VarList 1 f
+VarList 1 g
+VarList 1 h
+VarList 1 i
+VarList 1 j
+VarList 1 k
+VarList 1 l
+VarList 1 m
+VarList 1 n
+VarList 1 o
+VarList 1 p
+VarList 1 q
+VarList 1 r
+VarList 1 s
+VarList 1 t
+VarList 1 u
+VarList 1 v
+VarList 1 w
+VarList 1 x
+VarList 1 y
+VarList 1 z
+VarList 1 A
+VarList 1 B
+VarList 1 C
+VarList 1 D
+VarList 1 E
+VarList 1 F
+VarList 1 G
+VarList 1 H
+VarList 1 I
+VarList 1 J
+VarList 1 K
+VarList 1 L
+VarList 1 M
+VarList 1 N
+VarList 1 O
+VarList 1 P
+VarList 1 Q
+VarList 1 R
+VarList 1 S
+VarList 1 T
+VarList 1 U
+VarList 1 V
+VarList 1 W
+VarList 1 X
+VarList 1 Y
+VarList 1 Z
+VarList 2 Letter LetNum
+IntNumber 1 0
+IntNumber 1 1
+IntNumber 1 2
+IntNumber 1 3
+IntNumber 1 4
+IntNumber 1 5
+IntNumber 1 6
+IntNumber 1 7
+IntNumber 1 8
+IntNumber 1 9
+IntNumber 2 Digit IntNumber
+DoubleNumber 2 IntNumber RealPart
+RealPart 2 Dot IntNumber
+Dot 1 .
+Const 1 0
+Const 1 1
+Const 1 2
+Const 1 3
+Const 1 4
+Const 1 5
+Const 1 6
+Const 1 7
+Const 1 8
+Const 1 9
+Const 2 Digit IntNumber
+Const 2 IntNumber RealPart
+SimpleExpr 1 0
+SimpleExpr 1 1
+SimpleExpr 1 2
+SimpleExpr 1 3
+SimpleExpr 1 4
+SimpleExpr 1 5
+SimpleExpr 1 6
+SimpleExpr 1 7
+SimpleExpr 1 8
+SimpleExpr 1 9
+SimpleExpr 2 Digit IntNumber
+SimpleExpr 2 IntNumber RealPart
+Term 2 SimpleExpr1 CloseRoundBracket
+Expr 2 SimpleExpr1 CloseRoundBracket
+Term 1 0
+Term 1 1
+Term 1 2
+Term 1 3
+Term 1 4
+Term 1 5
+Term 1 6
+Term 1 7
+Term 1 8
+Term 1 9
+Term 1 a
+Term 1 b
+Term 1 c
+Term 1 d
+Term 1 e
+Term 1 f
+Term 1 g
+Term 1 h
+Term 1 i
+Term 1 j
+Term 1 k
+Term 1 l
+Term 1 m
+Term 1 n
+Term 1 o
+Term 1 p
+Term 1 q
+Term 1 r
+Term 1 s
+Term 1 t
+Term 1 u
+Term 1 v
+Term 1 w
+Term 1 x
+Term 1 y
+Term 1 z
+Term 1 A
+Term 1 B
+Term 1 C
+Term 1 D
+Term 1 E
+Term 1 F
+Term 1 G
+Term 1 H
+Term 1 I
+Term 1 J
+Term 1 K
+Term 1 L
+Term 1 M
+Term 1 N
+Term 1 O
+Term 1 P
+Term 1 Q
+Term 1 R
+Term 1 S
+Term 1 T
+Term 1 U
+Term 1 V
+Term 1 W
+Term 1 X
+Term 1 Y
+Term 1 Z
+Expr 1 0
+Expr 1 1
+Expr 1 2
+Expr 1 3
+Expr 1 4
+Expr 1 5
+Expr 1 6
+Expr 1 7
+Expr 1 8
+Expr 1 9
+Expr 1 a
+Expr 1 b
+Expr 1 c
+Expr 1 d
+Expr 1 e
+Expr 1 f
+Expr 1 g
+Expr 1 h
+Expr 1 i
+Expr 1 j
+Expr 1 k
+Expr 1 l
+Expr 1 m
+Expr 1 n
+Expr 1 o
+Expr 1 p
+Expr 1 q
+Expr 1 r
+Expr 1 s
+Expr 1 t
+Expr 1 u
+Expr 1 v
+Expr 1 w
+Expr 1 x
+Expr 1 y
+Expr 1 z
+Expr 1 A
+Expr 1 B
+Expr 1 C
+Expr 1 D
+Expr 1 E
+Expr 1 F
+Expr 1 G
+Expr 1 H
+Expr 1 I
+Expr 1 J
+Expr 1 K
+Expr 1 L
+Expr 1 M
+Expr 1 N
+Expr 1 O
+Expr 1 P
+Expr 1 Q
+Expr 1 R
+Expr 1 S
+Expr 1 T
+Expr 1 U
+Expr 1 V
+Expr 1 W
+Expr 1 X
+Expr 1 Y
+Expr 1 Z
+Expr 2 SimpleExprMult SpaceWithTerm
+Expr 2 SimpleExprDiv SpaceWithTerm

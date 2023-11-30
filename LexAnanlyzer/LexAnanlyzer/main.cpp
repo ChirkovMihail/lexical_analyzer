@@ -2,6 +2,8 @@
 #include "DFSM.h"
 #include "Token.h"
 #include "Hash_table.h"
+#include "ParseTree.h"
+#include "CYK.h"
 
 void input_dfa(DFSM*& dfsm)
 {
@@ -66,15 +68,18 @@ int main()
 	HashTable hashh(1000);
 
 	ifstream fin("text_input.txt");
-	string word, type;
-
-	ofstream fout("text_output.txt");
+	string word, type, big_str;
+	
+	bool str_is_accepted = true;
 
 	while (!fin.eof()) {
 		fin >> word;
 		if (fin.eof())
 			break;
 				
+		big_str += word;
+		big_str += "#";
+
 		type = dfsm->is_accept(word);		
 				
 		if (type.size() > 0) {
@@ -83,12 +88,29 @@ int main()
 		}
 		else
 		{
-			fout << "Wrong word : " << word << '\n';
+			str_is_accepted = false;
 		}
-	}
-
-	hashh.print_table(fout);
+	}	
 
 	fin.close();
+
+	CYK* cyk = new CYK;
+
+	fin.open("input_grammatic.txt");
+	cyk->ReadProdutions(fin);
+	
+	big_str.pop_back();
+	cout << big_str << '\n';
+	if (cyk->Accept(big_str)) {
+		//cyk->PrintTree();
+		cout << "Success\n";
+	}
+	else
+	{
+		cout << "Text is not accepted :(\n";		
+	}
+
+	
+
 	return 0;
 }
