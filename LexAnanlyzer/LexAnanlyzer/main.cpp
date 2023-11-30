@@ -102,15 +102,13 @@ int main()
 	big_str.pop_back();
 	cout << big_str << '\n';
 	if (cyk->Accept(big_str)) {
-		//cyk->PrintTree();
+		cyk->PrintTree();
 		cout << "Success\n";
 	}
 	else
 	{
 		cout << "Text is not accepted :(\n";		
-	}
-
-	
+	}	
 
 	return 0;
 }

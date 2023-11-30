@@ -19,7 +19,9 @@ public:
 	CYK() { tree = new ParseTree; };
 	void ReadProdutions(istream& in);
 	bool Accept(string& s);
-	void PrintTree();	
+	void PrintTree(ParseTree* vert, int level);
+	void PrintBinaryTree(ParseTree* vert, int level);
+	void PrintTree();
 	void create_tree(ParseTree *vert, pair<string, pair<int, pair<pair<int, int>, pair<int, int> > > > p) {
 		int i;
 		vert->value = p.first;
@@ -187,7 +189,42 @@ bool CYK::Accept(string& s)
 		return false;
 	}
 
-	//tree = new ParseTree;
-	//create_tree(tree, start);
+	tree = new ParseTree;
+	create_tree(tree, start);
 	return true;
+}
+
+void CYK::PrintTree(ParseTree* vert, int level)
+{
+	for (int i = 0; i < level; ++i)
+		cout << "    ";
+	vert->print();
+	for (int i = 0; i < vert->children.size(); ++i)
+		PrintTree(vert->children[i], level + 1);
+}
+
+void CYK::PrintBinaryTree(ParseTree* vert, int level)
+{
+	if (vert->children.size() <= 1){
+		for (int i = 0; i < level; ++i)
+			cout << "    ";
+		vert->print();
+		for (int i = 0; i < vert->children.size(); ++i)
+			PrintBinaryTree(vert->children[i], level + 1);
+	}
+	else
+	{
+		PrintBinaryTree(vert->children[0], level + 1);
+		for (int i = 0; i < level; ++i)
+			cout << "    ";
+		vert->print();
+		PrintBinaryTree(vert->children[1], level + 1);
+	}
+	
+}
+
+void CYK::PrintTree()
+{
+	//PrintTree(tree, 0);
+	PrintBinaryTree(tree, 0);
 }
