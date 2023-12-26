@@ -4,9 +4,15 @@ class CYK
 private:
 	ParseTree* tree = NULL;
 	string str = "";
+	int num_of_vert = 0;
 	vector<pair<string, pair<string, string> > > two_prod;
 	vector<pair<string, string> > one_prod;
 	vector<int> two_prod_nums, one_prod_nums;
+	vector<vector<int> > sem_adj_list;
+	vector<vector<string> > sem_rules;
+	vector<int> indexes;
+	vector<string> atrib;
+	vector<pair<string, pair<int, string> > > variables;
 
 	vector<vector<set<pair<string, pair<int, pair<pair<int, int>, pair<int, int> > > > > > > dp;
 
@@ -22,6 +28,9 @@ public:
 	void PrintTree(ParseTree* vert, int level);
 	void PrintBinaryTree(ParseTree* vert, int level);
 	void PrintTree();
+	void CompleteNums();
+	void CompleteNums(ParseTree* vert, int &k);
+	void ReadRules(ifstream& in);
 	void create_tree(ParseTree *vert, pair<string, pair<int, pair<pair<int, int>, pair<int, int> > > > p) {
 		int i;
 		vert->value = p.first;
@@ -65,6 +74,11 @@ public:
 			}
 		}
 	}
+	void CreateDepGraph();
+	void CreateDepGraph(ParseTree* vert);
+	void CompleteAtrib();
+	void CheckAtrib(ostream& out);
+	void CheckAtrib(ParseTree* vert, ostream& out);
 };
 
 void CYK::ReadProdutions(istream& in)
@@ -103,12 +117,6 @@ void CYK::ReadProdutions(istream& in)
 			two_prod_nums.push_back(two_prod_nums.back() + 1);
 		else
 			two_prod_nums.push_back(one_prod_nums.size());
-
-	//for (i = 0; i < one_prod.size(); ++i)
-	//	cout << one_prod[i].first << ' ' << one_prod[i].second << ' ' << one_prod_nums[i] << '\n';
-
-	//for (i = 0; i < two_prod.size(); ++i)
-	//	cout << two_prod[i].first << ' ' << two_prod[i].second.first << ' ' << two_prod[i].second.second << ' ' << two_prod_nums[i] << '\n';
 }
 
 vector<pair<string, pair<int, pair<pair<int, int>, pair<int, int> > > > > CYK::get_one_prods(string s)
@@ -116,8 +124,7 @@ vector<pair<string, pair<int, pair<pair<int, int>, pair<int, int> > > > > CYK::g
 	vector<pair<string, pair<int, pair<pair<int, int>, pair<int, int> > > > > res;
 	int i;
 	
-	for (i = 0; i < one_prod.size(); ++i) {
-		//cout << one_prod[i].second << ' ' << s << '\n';
+	for (i = 0; i < one_prod.size(); ++i) {		
 		if (one_prod[i].second == s)
 			res.push_back(mp(one_prod[i].first, mp(one_prod_nums[i], mp(mp(-1, -1), mp(-1, -1)))));
 	}
@@ -180,11 +187,6 @@ bool CYK::Accept(string& s)
 			break;
 		}
 
-	//for (i = 0; i < n; ++i, cout << '\n')
-	//	for (j = 0; j < n; ++j, cout << '\n')
-	//		for (auto p : dp[i][j])
-	//			cout << i << ' ' << j << ' '<< p.first << ' ';
-
 	if (!flag) {
 		return false;
 	}
@@ -227,4 +229,244 @@ void CYK::PrintTree()
 {
 	//PrintTree(tree, 0);
 	PrintBinaryTree(tree, 0);
+}
+
+void CYK::CompleteNums()
+{
+	int zero = 0;
+	CompleteNums(tree, zero);
+}
+
+void CYK::CompleteNums(ParseTree* vert, int &k)
+{
+	vert->num = k;
+	k++;
+	for (int i = 0; i < vert->children.size(); ++i) {
+		CompleteNums(vert->children[i], k);
+	}
+	num_of_vert = max(num_of_vert, k);
+}
+
+void CYK::ReadRules(ifstream& in)
+{
+	sem_adj_list.resize(num_of_vert);
+	atrib.resize(num_of_vert);
+
+	int n, i, j, k;
+	string s;
+	vector<string> buf(5);
+
+	in >> n;
+
+	for (i = 0; i < n; ++i) {
+		in >> buf[0];
+		in >> k;
+		if (k == 1)
+			in >> buf[1];
+		else
+			in >> buf[1] >> buf[2];
+		in >> buf[3] >> buf[4];
+		sem_rules.push_back(buf);
+	}
+}
+
+void CYK::CreateDepGraph()
+{
+	CreateDepGraph(tree);
+}
+
+int find_in_subtree(ParseTree* vert, string& s)
+{
+	queue<ParseTree*> Q;
+	ParseTree* curr_vert;
+
+	Q.push(vert);
+	while (!Q.empty())
+	{
+		curr_vert = Q.front();
+		Q.pop();
+
+		if (curr_vert->value == s) {
+			return curr_vert->num;
+		}
+
+		for (int i = 0; i < curr_vert->children.size(); ++i) {
+			Q.push(curr_vert->children[i]);
+		}
+	}
+	return -1;
+}
+
+void fill_name(ParseTree* vert, vector<pair<int, char> >& name)
+{
+	if (vert->value.size() == 1) {
+		name.push_back(mp(vert->num, vert->value[0]));
+	}
+
+	for (int i = 0; i < vert->children.size(); ++i)
+		fill_name(vert->children[i], name);
+}
+
+void CYK::CreateDepGraph(ParseTree* vert)
+{
+	int i, j, x, y;
+
+	for (i = 0; i < vert->children.size(); ++i) {
+		for (j = 0; j < sem_rules.size(); ++j) {
+			if (vert->value == sem_rules[j][0] && (vert->children[i]->value == sem_rules[j][1]
+				|| vert->children[i]->value == sem_rules[j][2])) {
+				x = find_in_subtree(vert, sem_rules[j][3]);
+				y = find_in_subtree(vert, sem_rules[j][4]);
+				if (x != -1 && y != -1) 
+					sem_adj_list[y].push_back(x);					
+				else
+				{
+					if (sem_rules[j][4] == "int")
+						atrib[x] = "int";
+					if (sem_rules[j][4] == "double")
+						atrib[x] = "double";
+					if (sem_rules[j][3] == "var") {
+						vector<pair<int, char> > name;
+						fill_name(vert, name);
+						sort(all(name));
+						string s = "";
+						for (auto p : name)
+							s += p.second;						
+						variables.push_back(mp(s, mp(y, "")));
+					}
+
+				}
+				break;
+			}
+		}
+		CreateDepGraph(vert->children[i]);
+	}
+}
+
+void complete_proccesed(int vert, vector<vector<int> >& adj_list, vector<bool>& used, vector<int>& proccesed)
+{
+	used[vert] = 1;
+	for (auto next_vert : adj_list[vert])
+		if (!used[next_vert])
+			complete_proccesed(next_vert, adj_list, used, proccesed);
+	proccesed.push_back(vert);
+}
+
+void CYK::CompleteAtrib()
+{
+	vector<bool>used(num_of_vert);
+	vector<int> proccesed;
+
+	int i, j;
+
+	for (i = 0; i < num_of_vert; ++i)
+		if (!used[i])
+			complete_proccesed(i, sem_adj_list, used, proccesed);
+
+	reverse(all(proccesed));
+	indexes.resize(num_of_vert, -1);
+	for (i = 0; i < num_of_vert; ++i)
+		if (indexes[proccesed[i]] == -1)
+			indexes[proccesed[i]] = i;
+
+	for (i = 0; i < num_of_vert; ++i)
+		for (auto next_vert : sem_adj_list[proccesed[i]])
+			atrib[next_vert] = atrib[proccesed[i]];
+
+	for (i = 0; i < variables.size(); ++i)
+		variables[i].second.second = atrib[variables[i].second.first];
+
+	
+}
+
+void CYK::CheckAtrib(ostream &out)
+{
+	CheckAtrib(tree, out);
+}
+
+void CYK::CheckAtrib(ParseTree* vert, ostream& out)
+{
+	if (vert->value == "Function") {
+		vector<pair<int, char> > name;
+		string s = "", atr2;
+
+		fill_name(vert->children[1]->children[1]->children[0]->children[1]->children[0], name);
+		sort(all(name));
+
+		for (auto p : name)
+			s += p.second;
+
+		for (auto p : variables)
+			if (p.first == s) {
+				atr2 = p.second.second;
+				break;
+			}
+
+		if (atrib[vert->children[0]->num] != atr2) {
+			out << "Error with return :( \n";
+		}
+	}
+
+	if ((vert->value == "Op" || vert->value == "Operators") && vert->children.size() > 1 &&
+		vert->children[0]->value == "Op1" && vert->children[1]->value == "Op2") {
+
+		vector<pair<int, char> > name;
+		string s = "", atr1, atr2;
+
+		fill_name(vert->children[0]->children[0]->children[0], name);
+		sort(all(name));
+		
+		for (auto p : name)
+			s += p.second;
+		
+		for (auto p : variables)
+			if (p.first == s) {
+				atr1 = p.second.second;
+				break;
+			}
+
+		atr2 = atrib[vert->children[1]->children[0]->children[0]->num];
+		
+		if (atr1 != atr2)
+			out << "Operators error\n";
+	}
+
+	if (vert->value == "Expr" && vert->children.size() > 1 &&
+		vert->children[0]->value == "Expr1" && vert->children[1]->value == "ExprPlus") {
+		if (atrib[vert->children[0]->num] != atrib[vert->children[1]->num])
+			out << "Operators error\n";
+	}
+
+	if (vert->value == "Expr" && vert->children.size() > 1 &&
+		vert->children[0]->value == "Expr1" && vert->children[1]->value == "ExprMinus") {
+		if (atrib[vert->children[0]->num] != atrib[vert->children[1]->num])
+			out << "Operators error\n";
+	}
+
+	if (vert->value == "Term" && vert->children.size() > 1 &&
+		vert->children[0]->value == "SimpleExprMult" && vert->children[1]->value == "SpaceWithTerm") {
+		if (atrib[vert->children[0]->num] != atrib[vert->children[1]->num])
+			out << "Operators error\n";
+	}
+
+	if (vert->value == "Term" && vert->children.size() > 1 &&
+		vert->children[0]->value == "SimpleExprDiv" && vert->children[1]->value == "SpaceWithTerm") {
+		if (atrib[vert->children[0]->num] != atrib[vert->children[1]->num])
+			out << "Operators error\n";
+	}
+
+	if (vert->value == "Expr" && vert->children.size() > 1 &&
+		vert->children[0]->value == "SimpleExprMult" && vert->children[1]->value == "SpaceWithTerm") {
+		if (atrib[vert->children[0]->num] != atrib[vert->children[1]->num])
+			out << "Operators error\n";
+	}
+
+	if (vert->value == "Expr" && vert->children.size() > 1 &&
+		vert->children[0]->value == "SimpleExprDiv" && vert->children[1]->value == "SpaceWithTerm") {
+		if (atrib[vert->children[0]->num] != atrib[vert->children[1]->num])
+			out << "Operators error\n";
+	}
+
+	for (int i = 0; i < vert->children.size(); ++i)
+		CheckAtrib(vert->children[i], out);
 }

@@ -1,1 +1,1 @@
-double fun() { double a ; int b ; a = 1 * (2 + 3 / 2) ; return a ; } 
+int fun() { int a ; a = 3.8 + 6 ; return a ; } 

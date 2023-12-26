@@ -1,13 +1,15 @@
 ﻿  main.cpp
-D:\myPROJECTS\Laboratory works\FST\lexical_analyzer\LexAnanlyzer\LexAnanlyzer\CYK.h(100,44): warning C4267: аргумент: преобразование из "size_t" в "_Ty"; возможна потеря данных
+D:\myPROJECTS\Laboratory works\FST\lexical_analyzer\LexAnanlyzer\LexAnanlyzer\CYK.h(114,44): warning C4267: аргумент: преобразование из "size_t" в "_Ty"; возможна потеря данных
           with
           [
               _Ty=int
           ]
-D:\myPROJECTS\Laboratory works\FST\lexical_analyzer\LexAnanlyzer\LexAnanlyzer\CYK.h(105,46): warning C4267: аргумент: преобразование из "size_t" в "_Ty"; возможна потеря данных
+D:\myPROJECTS\Laboratory works\FST\lexical_analyzer\LexAnanlyzer\LexAnanlyzer\CYK.h(119,46): warning C4267: аргумент: преобразование из "size_t" в "_Ty"; возможна потеря данных
           with
           [
               _Ty=int
           ]
-D:\myPROJECTS\Laboratory works\FST\lexical_analyzer\LexAnanlyzer\LexAnanlyzer\CYK.h(148,8): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+D:\myPROJECTS\Laboratory works\FST\lexical_analyzer\LexAnanlyzer\LexAnanlyzer\CYK.h(155,8): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+D:\myPROJECTS\Laboratory works\FST\lexical_analyzer\LexAnanlyzer\LexAnanlyzer\CYK.h(255,12): warning C4101: j: неиспользованная локальная переменная
+D:\myPROJECTS\Laboratory works\FST\lexical_analyzer\LexAnanlyzer\LexAnanlyzer\CYK.h(360,9): warning C4101: j: неиспользованная локальная переменная
   LexAnanlyzer.vcxproj -> D:\myPROJECTS\Laboratory works\FST\lexical_analyzer\LexAnanlyzer\x64\Debug\LexAnanlyzer.exe

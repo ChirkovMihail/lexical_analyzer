@@ -1,4 +1,4 @@
-541
+545
 Function 2 Function1 Function2
 Function1 2 Fun1 Fun2
 Function2 2 Fun3 End
@@ -41,11 +41,11 @@ Descr2 2 Descr21 DotComa
 Descr21 2 VarList Space
 Descriptions 2 Descr1 Descr2
 OpWithSpace 2 Op Space
-VarList 2 VarList1 Varlist2
+VarList 2 VarList1 VarList2
 VarList1 2 Id SpaceWithComa
 SpaceWithComa 2 Space Coma
 Coma 1 ,
-VarList 2 Space VarList
+VarList2 2 Space VarList
 Type 2 In TT
 In 2 II NN
 II 1 i
@@ -539,3 +539,7 @@ Expr 1 Y
 Expr 1 Z
 Expr 2 SimpleExprMult SpaceWithTerm
 Expr 2 SimpleExprDiv SpaceWithTerm
+Expr 2 Digit IntNumber
+Expr 2 IntNumber RealPart
+Term 2 Digit IntNumber
+Term 2 IntNumber RealPart

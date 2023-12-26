@@ -1,0 +1,277 @@
+276
+Function1 2 Fun1 Fun2 Function1 Fun1
+Function2 2 Fun3 End Function2 End
+Fun1 2 Begin Space Fun1 Begin
+Begin 2 Begin1 Begin2 Begin Begin1
+Begin1 2 Type Space Begin1 Type
+End 2 End1 End2 End End1
+End1 2 End11 End12 End1 End12
+End12 2 Id Space End12 Id
+Descr 2 Descr1 Descr2 VarList Type
+Descriptions 2 Descr1 Descr2 VarList Type
+VarList 2 VarList1 VarList2 var VarList
+Type 2 In TT Type int
+Type 2 Dou Ble Type double
+SimpleExpr 2 SimpleExpr1 CloseRoundBracket SimpleExpr SimpleExpr1
+SimpleExpr1 2 OpenRoundBracket Expr SimpleExpr1 Expr
+Expr 2 Expr1 ExprPlus Expr Expr1
+Expr 2 Expr1 ExprMinus Expr Expr1
+Expr1 2 Term Space Expr1 Term
+ExprPlus 2 PlusWithSpace Expr ExprPlus Expr
+ExprMinus 2 MinusWithSpace Expr ExprMinus Expr
+Term 2 SimpleExprMult SpaceWithTerm Term SimpleExprMult
+Term 2 SimpleExprDiv SpaceWithTerm Term SimpleExrpDiv
+SpaceWithTerm 2 Space Term SpaceWithTerm Term
+SimpleExprMult 2 SimpleExpr SpaceWithMult SimpleExprMult SimpleExpr
+SimpleExprDiv 2 SimpleExpr SpaceWithDiv SimpleExprDiv SimpleExpr
+Term 2 SimpleExpr1 CloseRoundBracket Term SimpleExpr1
+SimpleExpr 1 a SimpleExpr var
+SimpleExpr 1 b SimpleExpr var
+SimpleExpr 1 c SimpleExpr var
+SimpleExpr 1 d SimpleExpr var
+SimpleExpr 1 e SimpleExpr var
+SimpleExpr 1 f SimpleExpr var
+SimpleExpr 1 g SimpleExpr var
+SimpleExpr 1 h SimpleExpr var
+SimpleExpr 1 i SimpleExpr var
+SimpleExpr 1 j SimpleExpr var
+SimpleExpr 1 k SimpleExpr var
+SimpleExpr 1 l SimpleExpr var
+SimpleExpr 1 m SimpleExpr var
+SimpleExpr 1 n SimpleExpr var
+SimpleExpr 1 o SimpleExpr var
+SimpleExpr 1 p SimpleExpr var
+SimpleExpr 1 q SimpleExpr var
+SimpleExpr 1 r SimpleExpr var
+SimpleExpr 1 s SimpleExpr var
+SimpleExpr 1 t SimpleExpr var
+SimpleExpr 1 u SimpleExpr var
+SimpleExpr 1 v SimpleExpr var
+SimpleExpr 1 w SimpleExpr var
+SimpleExpr 1 x SimpleExpr var
+SimpleExpr 1 y SimpleExpr var
+SimpleExpr 1 z SimpleExpr var
+SimpleExpr 1 A SimpleExpr var
+SimpleExpr 1 B SimpleExpr var
+SimpleExpr 1 C SimpleExpr var
+SimpleExpr 1 D SimpleExpr var
+SimpleExpr 1 E SimpleExpr var
+SimpleExpr 1 F SimpleExpr var
+SimpleExpr 1 G SimpleExpr var
+SimpleExpr 1 H SimpleExpr var
+SimpleExpr 1 I SimpleExpr var
+SimpleExpr 1 J SimpleExpr var
+SimpleExpr 1 K SimpleExpr var
+SimpleExpr 1 L SimpleExpr var
+SimpleExpr 1 M SimpleExpr var
+SimpleExpr 1 N SimpleExpr var
+SimpleExpr 1 O SimpleExpr var
+SimpleExpr 1 P SimpleExpr var
+SimpleExpr 1 Q SimpleExpr var
+SimpleExpr 1 R SimpleExpr var
+SimpleExpr 1 S SimpleExpr var
+SimpleExpr 1 T SimpleExpr var
+SimpleExpr 1 U SimpleExpr var
+SimpleExpr 1 V SimpleExpr var
+SimpleExpr 1 W SimpleExpr var
+SimpleExpr 1 X SimpleExpr var
+SimpleExpr 1 Y SimpleExpr var
+SimpleExpr 1 Z SimpleExpr var
+SimpleExpr 2 Letter LetNum SimpleExpr var
+VarList 1 a var VarList
+VarList 1 b var VarList
+VarList 1 c var VarList
+VarList 1 d var VarList
+VarList 1 e var VarList
+VarList 1 f var VarList
+VarList 1 g var VarList
+VarList 1 h var VarList
+VarList 1 i var VarList
+VarList 1 j var VarList
+VarList 1 k var VarList
+VarList 1 l var VarList
+VarList 1 m var VarList
+VarList 1 n var VarList
+VarList 1 o var VarList
+VarList 1 p var VarList
+VarList 1 q var VarList
+VarList 1 r var VarList
+VarList 1 s var VarList
+VarList 1 t var VarList
+VarList 1 u var VarList
+VarList 1 v var VarList
+VarList 1 w var VarList
+VarList 1 x var VarList
+VarList 1 y var VarList
+VarList 1 z var VarList
+VarList 1 A var VarList
+VarList 1 B var VarList
+VarList 1 C var VarList
+VarList 1 D var VarList
+VarList 1 E var VarList
+VarList 1 F var VarList
+VarList 1 G var VarList
+VarList 1 H var VarList
+VarList 1 I var VarList
+VarList 1 J var VarList
+VarList 1 K var VarList
+VarList 1 L var VarList
+VarList 1 M var VarList
+VarList 1 N var VarList
+VarList 1 O var VarList
+VarList 1 P var VarList
+VarList 1 Q var VarList
+VarList 1 R var VarList
+VarList 1 S var VarList
+VarList 1 T var VarList
+VarList 1 U var VarList
+VarList 1 V var VarList
+VarList 1 W var VarList
+VarList 1 X var VarList
+VarList 1 Y var VarList
+VarList 1 Z var VarList
+VarList 2 Letter LetNum var VarList
+SimpleExpr 1 0 SimpleExpr int
+SimpleExpr 1 1 SimpleExpr int
+SimpleExpr 1 2 SimpleExpr int
+SimpleExpr 1 3 SimpleExpr int
+SimpleExpr 1 4 SimpleExpr int
+SimpleExpr 1 5 SimpleExpr int
+SimpleExpr 1 6 SimpleExpr int
+SimpleExpr 1 7 SimpleExpr int
+SimpleExpr 1 8 SimpleExpr int
+SimpleExpr 1 9 SimpleExpr int
+SimpleExpr 2 Digit IntNumber SimpleExpr int
+SimpleExpr 2 IntNumber RealPart SimpleExpr double
+Term 2 SimpleExpr1 CloseRoundBracket Term SimpleExpr1
+Expr 2 SimpleExpr1 CloseRoundBracket Expr SimpleExpr1
+Term 1 0 Term int
+Term 1 1 Term int
+Term 1 2 Term int
+Term 1 3 Term int
+Term 1 4 Term int
+Term 1 5 Term int
+Term 1 6 Term int
+Term 1 7 Term int
+Term 1 8 Term int
+Term 1 9 Term int
+Term 1 a Term var
+Term 1 b Term var
+Term 1 c Term var
+Term 1 d Term var
+Term 1 e Term var
+Term 1 f Term var
+Term 1 g Term var
+Term 1 h Term var
+Term 1 i Term var
+Term 1 j Term var
+Term 1 k Term var
+Term 1 l Term var
+Term 1 m Term var
+Term 1 n Term var
+Term 1 o Term var
+Term 1 p Term var
+Term 1 q Term var
+Term 1 r Term var
+Term 1 s Term var
+Term 1 t Term var
+Term 1 u Term var
+Term 1 v Term var
+Term 1 w Term var
+Term 1 x Term var
+Term 1 y Term var
+Term 1 z Term var
+Term 1 A Term var
+Term 1 B Term var
+Term 1 C Term var
+Term 1 D Term var
+Term 1 E Term var
+Term 1 F Term var
+Term 1 G Term var
+Term 1 H Term var
+Term 1 I Term var
+Term 1 J Term var
+Term 1 K Term var
+Term 1 L Term var
+Term 1 M Term var
+Term 1 N Term var
+Term 1 O Term var
+Term 1 P Term var
+Term 1 Q Term var
+Term 1 R Term var
+Term 1 S Term var
+Term 1 T Term var
+Term 1 U Term var
+Term 1 V Term var
+Term 1 W Term var
+Term 1 X Term var
+Term 1 Y Term var
+Term 1 Z Term var
+Expr 1 0 Expr int
+Expr 1 1 Expr int
+Expr 1 2 Expr int
+Expr 1 3 Expr int
+Expr 1 4 Expr int
+Expr 1 5 Expr int
+Expr 1 6 Expr int
+Expr 1 7 Expr int
+Expr 1 8 Expr int
+Expr 1 9 Expr int
+Expr 1 a Expr var
+Expr 1 b Expr var
+Expr 1 c Expr var
+Expr 1 d Expr var
+Expr 1 e Expr var
+Expr 1 f Expr var
+Expr 1 g Expr var
+Expr 1 h Expr var
+Expr 1 i Expr var
+Expr 1 j Expr var
+Expr 1 k Expr var
+Expr 1 l Expr var
+Expr 1 m Expr var
+Expr 1 n Expr var
+Expr 1 o Expr var
+Expr 1 p Expr var
+Expr 1 q Expr var
+Expr 1 r Expr var
+Expr 1 s Expr var
+Expr 1 t Expr var
+Expr 1 u Expr var
+Expr 1 v Expr var
+Expr 1 w Expr var
+Expr 1 x Expr var
+Expr 1 y Expr var
+Expr 1 z Expr var
+Expr 1 A Expr var
+Expr 1 B Expr var
+Expr 1 C Expr var
+Expr 1 D Expr var
+Expr 1 E Expr var
+Expr 1 F Expr var
+Expr 1 G Expr var
+Expr 1 H Expr var
+Expr 1 I Expr var
+Expr 1 J Expr var
+Expr 1 K Expr var
+Expr 1 L Expr var
+Expr 1 M Expr var
+Expr 1 N Expr var
+Expr 1 O Expr var
+Expr 1 P Expr var
+Expr 1 Q Expr var
+Expr 1 R Expr var
+Expr 1 S Expr var
+Expr 1 T Expr var
+Expr 1 U Expr var
+Expr 1 V Expr var
+Expr 1 W Expr var
+Expr 1 X Expr var
+Expr 1 Y Expr var
+Expr 1 Z Expr var
+Expr 2 SimpleExprMult SpaceWithTerm Expr SimpleExprMult
+Expr 2 SimpleExprDiv SpaceWithTerm Expr SimpleExprDiv
+Expr 2 Digit IntNumber Expr int
+Expr 2 IntNumber RealPart Expr double
+Term 2 Digit IntNumber Term int
+Term 2 IntNumber RealPart Term double

@@ -83,7 +83,7 @@ int main()
 		type = dfsm->is_accept(word);		
 				
 		if (type.size() > 0) {
-			Token new_tok(word, type);
+			Token new_tok(word, type);     
 			hashh.insert_token(new_tok);
 		}
 		else
@@ -98,17 +98,32 @@ int main()
 
 	fin.open("input_grammatic.txt");
 	cyk->ReadProdutions(fin);
-	
+	fin.close(); 
+
 	big_str.pop_back();
 	cout << big_str << '\n';
 	if (cyk->Accept(big_str)) {
-		cyk->PrintTree();
+		//cyk->PrintTree();
 		cout << "Success\n";
 	}
 	else
 	{
 		cout << "Text is not accepted :(\n";		
 	}	
+
+	cyk->CompleteNums();
+
+	fin.open("input_semantic_rules.txt");
+	cyk->ReadRules(fin);
+	fin.close();
+
+	cyk->CreateDepGraph();
+
+	cyk->CompleteAtrib();
+
+	ofstream fout("error_output.txt");
+
+	cyk->CheckAtrib(fout);
 
 	return 0;
 }
