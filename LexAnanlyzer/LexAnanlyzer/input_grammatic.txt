@@ -1,4 +1,4 @@
-545
+547
 Function 2 Function1 Function2
 Function1 2 Fun1 Fun2
 Function2 2 Fun3 End
@@ -543,3 +543,5 @@ Expr 2 Digit IntNumber
 Expr 2 IntNumber RealPart
 Term 2 Digit IntNumber
 Term 2 IntNumber RealPart
+Term 2 Letter LetNum
+Expr 2 Letter LetNum

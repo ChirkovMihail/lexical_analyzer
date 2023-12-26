@@ -137,6 +137,7 @@
     <ClInclude Include="Hash_table.h" />
     <ClInclude Include="Libraries.h" />
     <ClInclude Include="ParseTree.h" />
+    <ClInclude Include="RPN.h" />
     <ClInclude Include="Token.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -1,1 +1,1 @@
-int fun() { int a ; a = 3.8 + 6 ; return a ; } 
+double fun() { int x , z ; a = (a - t) * (t + 78) ; return a ; } 

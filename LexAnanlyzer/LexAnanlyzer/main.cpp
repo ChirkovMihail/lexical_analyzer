@@ -4,6 +4,7 @@
 #include "Hash_table.h"
 #include "ParseTree.h"
 #include "CYK.h"
+#include "RPN.h"
 
 void input_dfa(DFSM*& dfsm)
 {
@@ -103,7 +104,6 @@ int main()
 	big_str.pop_back();
 	cout << big_str << '\n';
 	if (cyk->Accept(big_str)) {
-		//cyk->PrintTree();
 		cout << "Success\n";
 	}
 	else
@@ -112,6 +112,8 @@ int main()
 	}	
 
 	cyk->CompleteNums();
+
+	cyk->PrintTree();
 
 	fin.open("input_semantic_rules.txt");
 	cyk->ReadRules(fin);
@@ -122,8 +124,13 @@ int main()
 	cyk->CompleteAtrib();
 
 	ofstream fout("error_output.txt");
-
 	cyk->CheckAtrib(fout);
+
+	string rpn = "";
+	rpn = cyk->CreateRPN();
+	fout << rpn << '\n';
+
+	fout.close();
 
 	return 0;
 }

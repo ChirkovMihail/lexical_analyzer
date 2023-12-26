@@ -79,6 +79,8 @@ public:
 	void CompleteAtrib();
 	void CheckAtrib(ostream& out);
 	void CheckAtrib(ParseTree* vert, ostream& out);
+	string CreateRPN();
+	string CreateRPN(ParseTree* vert);
 };
 
 void CYK::ReadProdutions(istream& in)
@@ -330,9 +332,18 @@ void CYK::CreateDepGraph(ParseTree* vert)
 						fill_name(vert, name);
 						sort(all(name));
 						string s = "";
-						for (auto p : name)
-							s += p.second;						
-						variables.push_back(mp(s, mp(y, "")));
+						for (auto p : name) {
+							if (!(p.second >= 'a' && p.second <= 'z' || p.second >= 'A' && p.second <= 'Z') && s.size() > 0) {
+								variables.push_back(mp(s, mp(y, "")));
+								s = "";
+							}
+							else
+							{
+								s += p.second;
+							}
+						}						
+						if (s.size() > 0)
+							variables.push_back(mp(s, mp(y, "")));
 					}
 
 				}
